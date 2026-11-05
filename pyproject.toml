@@ -1,0 +1,51 @@
+[project]
+name = "code-master"
+version = "0.1.0"
+description = "Local, deterministic code intelligence: structure, clones, coupling, and context budget."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "streaxrxoutlook-coder" }]
+keywords = ["static-analysis", "complexity", "clones", "pagerank", "winnowing"]
+classifiers = [
+    "Environment :: Console",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Quality Assurance",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/streaxrxoutlook-coder/code-master"
+Repository = "https://github.com/streaxrxoutlook-coder/code-master"
+
+[project.scripts]
+code-master = "code_master.cli:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "mypy>=1.11"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+code_master = ["py.typed"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.mypy]
+python_version = "3.11"
+mypy_path = "src"
+packages = ["code_master"]
+disallow_untyped_defs = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+no_implicit_optional = true
